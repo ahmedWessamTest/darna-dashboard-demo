@@ -18,6 +18,7 @@ import { Editor } from "primeng/editor";
 import { FileUploadModule } from "primeng/fileupload";
 import { InputTextModule } from "primeng/inputtext";
 import { ToastModule } from "primeng/toast";
+import { NgxJoditComponent } from "ngx-jodit";
 @Component({
   selector: "app-contact-us",
   imports: [
@@ -30,7 +31,8 @@ import { ToastModule } from "primeng/toast";
     Editor,
     FormsModule,
     ReactiveFormsModule,
-  ],
+    NgxJoditComponent
+],
   templateUrl: "./contact-us.html",
   styleUrl: "./contact-us.scss",
 })

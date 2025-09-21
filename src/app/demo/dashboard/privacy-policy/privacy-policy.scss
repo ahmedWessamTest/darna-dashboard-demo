@@ -8,7 +8,7 @@
   background-color: #cbd5e1 !important;
   color: #475569;
 }
-::ng-deep .editor-disabled .p-editor-toolbar {
+::ng-deep .editor-disabled .-toolbar {
   display: none;
 }
 .rtl-editor ::ng-deep .ql-editor {

@@ -1,5 +1,6 @@
 <div class="grid">
   <div class="col-12">
+    
     <p-card [header]="'About Us'" styleClass="shadow-2">
       <div class="p-fluid">
         <form [formGroup]="aboutForm" (ngSubmit)="onSubmit()">
@@ -32,12 +33,17 @@
                 class="block text-900 font-medium mb-2">
                 description
               </label>
-              <div class="card">
-                <p-editor
+     <div class="card">
+                  <ngx-jodit
                   placeholder="Enter en slider description"
-                  formControlName="en_main_text"
-                  [style]="{ height: '320px', backgroundColor: 'white' }" />
-              </div>
+                    formControlName="en_main_text"
+                    [options]="{
+                      height: 320,
+                      direction: 'ltr'
+                    }" />
+                </div>
+
+
               <!-- Alt Image Field -->
               <div class="field mb-3">
                 <label
@@ -87,11 +93,13 @@
                 description
               </label>
               <div class="card">
-                <p-editor
+                  <ngx-jodit
                   placeholder="Enter ar slider description"
-                  formControlName="ar_main_text"
-                  [styleClass]="'rtl-editor'"
-                  [style]="{ height: '320px', backgroundColor: 'white' }" />
+                    formControlName="ar_main_text"
+                    [options]="{
+                      height: 320,
+                      direction: 'rtl'
+                    }" />
               </div>
               <!-- Alt Image Field -->
               <div class="field mb-3">

@@ -18,6 +18,7 @@ import { Editor } from "primeng/editor";
 import { FileUploadModule } from "primeng/fileupload";
 import { InputTextModule } from "primeng/inputtext";
 import { ToastModule } from "primeng/toast";
+import { NgxJoditComponent } from "ngx-jodit";
 @Component({
   selector: "app-about-us",
   imports: [
@@ -27,10 +28,10 @@ import { ToastModule } from "primeng/toast";
     InputTextModule,
     CardModule,
     ToastModule,
-    Editor,
     FormsModule,
     ReactiveFormsModule,
-  ],
+    NgxJoditComponent
+],
   templateUrl: "./about-us.html",
   styleUrl: "./about-us.scss",
 })
@@ -115,12 +116,19 @@ export class AboutUs implements OnInit {
 
   onSubmit() {
     if (this.aboutForm.invalid) return;
+console.log(this.aboutForm.get('en_main_text').getRawValue());
+
     this.isLoading.set(true);
+    const formValue = this.aboutForm.getRawValue();
+    
+    console.log("Form Value:",formValue);
+    
     this.aboutUsService
       .updateAboutUs(
-        this.aboutForm.value as IAboutData,
+        formValue as IAboutData,
         this.selectedFile || undefined
       )
+      
       .subscribe((next: any) => {
         this.isLoading.set(false);
         if (next.success) {

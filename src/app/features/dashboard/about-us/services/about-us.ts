@@ -18,6 +18,8 @@ export class AboutUService {
     data: IAboutData,
     file: File | undefined
   ): Observable<IAboutUs> {
+    console.log(data);
+    
     const formData = new FormData();
     formData.append("en_main_title", data.en_main_title);
     formData.append("en_main_text", data.en_main_text);

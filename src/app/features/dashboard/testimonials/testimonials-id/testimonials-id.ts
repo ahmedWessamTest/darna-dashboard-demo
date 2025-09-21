@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import {
   Component,
   computed,
+  CUSTOM_ELEMENTS_SCHEMA,
   effect,
   inject,
   OnInit,
@@ -14,7 +15,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { baseUrl } from "@app/core/env";
 import { MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -25,6 +26,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { ToastModule } from "primeng/toast";
 import { IDataTestimonials } from "../models/testimonials";
 import { TestimonialsService } from "../services/testimonials";
+import { NgxJoditComponent } from "ngx-jodit";
 
 @Component({
   selector: "app-testimonials-id",
@@ -37,12 +39,13 @@ import { TestimonialsService } from "../services/testimonials";
     CardModule,
     EditorModule,
     FileUploadModule,
-    RouterLink,
     InputTextModule,
-  ],
+    NgxJoditComponent
+],
   providers: [MessageService],
   templateUrl: "./testimonials-id.html",
   styleUrl: "./testimonials-id.scss",
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TestimonialsId implements OnInit {
   private testimonialservice = inject(TestimonialsService);

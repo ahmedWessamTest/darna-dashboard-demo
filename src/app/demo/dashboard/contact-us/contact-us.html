@@ -55,10 +55,13 @@
                   Footer Text
                 </label>
                 <div class="card">
-                  <p-editor
-                    placeholder="Enter en footer text"
+                    <ngx-jodit
+                  placeholder="Enter en footer text"
                     formControlName="en_footer_text"
-                    [style]="{ height: '320px', backgroundColor: 'white' }" />
+                    [options]="{
+                      height: 320,
+                      direction: 'ltr'
+                    }" />
                 </div>
                 <small
                   class="p-error block"
@@ -116,11 +119,14 @@
                   Footer Text
                 </label>
                 <div class="card">
-                  <p-editor
-                    [styleClass]="'rtl-editor'"
-                    placeholder="Enter en footer text"
+                    <ngx-jodit
+                  placeholder="Enter en footer text"
                     formControlName="ar_footer_text"
-                    [style]="{ height: '320px', backgroundColor: 'white' }" />
+                    [options]="{
+                      height: 320,
+                      direction: 'rtl'
+                    }" />
+                    
                 </div>
                 <small
                   class="p-error block"

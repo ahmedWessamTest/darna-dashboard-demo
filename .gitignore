@@ -7,7 +7,7 @@
 .angular/
 
 # Environment files
-!/src/environments/*.ts
+/src/environments/*.ts
 
 # IDEs
 .vscode/
