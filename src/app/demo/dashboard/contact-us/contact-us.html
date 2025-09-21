@@ -1,0 +1,406 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="'Contact Us'" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- left side : en  -->
+
+            <div class="col-12 md:col-6">
+              <h4 class="font-bold mb-4">English content</h4>
+              <!-- address Field -->
+              <div class="field mb-3">
+                <label for="en_address" class="block text-900 font-medium mb-2">
+                  Address
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="en_address"
+                  placeholder="Enter en address"
+                  style="width: 100%"
+                  [class.ng-invalid]="contactForm.get('en_address')?.invalid && contactForm.get('en_address')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('en_address')?.invalid && contactForm.get('en_address')?.touched">
+                  Address is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <!-- address Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_working_hours"
+                  class="block text-900 font-medium mb-2">
+                  Working Hours
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="en_working_hours"
+                  placeholder="Enter en address"
+                  style="width: 100%"
+                  [class.ng-invalid]="contactForm.get('en_working_hours')?.invalid && contactForm.get('en_working_hours')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('en_working_hours')?.invalid && contactForm.get('en_working_hours')?.touched">
+                  Address is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <!-- footer text Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_footer_text"
+                  class="block text-900 font-medium mb-2">
+                  Footer Text
+                </label>
+                <div class="card">
+                  <p-editor
+                    placeholder="Enter en footer text"
+                    formControlName="en_footer_text"
+                    [style]="{ height: '320px', backgroundColor: 'white' }" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('en_footer_text')?.invalid && contactForm.get('en_footer_text')?.touched">
+                  Address is required and must be at least 3 characters long.
+                </small>
+              </div>
+            </div>
+            <!-- right side : ar  -->
+            <div class="col-12 md:col-6 right-side">
+              <h4 class="font-bold mb-4">Arabic content</h4>
+              <!-- address Field -->
+              <div class="field mb-3">
+                <label for="ar_address" class="block text-900 font-medium mb-2">
+                  Address
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="ar_address"
+                  placeholder="Enter en address"
+                  style="width: 100%"
+                  [class.ng-invalid]="contactForm.get('ar_address')?.invalid && contactForm.get('ar_address')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('ar_address')?.invalid && contactForm.get('ar_address')?.touched">
+                  Address is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <!-- address Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_working_hours"
+                  class="block text-900 font-medium mb-2">
+                  Working Hours
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="ar_working_hours"
+                  placeholder="Enter en address"
+                  style="width: 100%"
+                  [class.ng-invalid]="contactForm.get('ar_working_hours')?.invalid && contactForm.get('ar_working_hours')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('ar_working_hours')?.invalid && contactForm.get('ar_working_hours')?.touched">
+                  Address is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <!-- footer text Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_footer_text"
+                  class="block text-900 font-medium mb-2">
+                  Footer Text
+                </label>
+                <div class="card">
+                  <p-editor
+                    [styleClass]="'rtl-editor'"
+                    placeholder="Enter en footer text"
+                    formControlName="ar_footer_text"
+                    [style]="{ height: '320px', backgroundColor: 'white' }" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('ar_footer_text')?.invalid && contactForm.get('ar_footer_text')?.touched">
+                  Address is required and must be at least 3 characters long.
+                </small>
+              </div>
+            </div>
+
+            <!-- social Media -->
+            <hr
+              class="d-block my-5 border-2 w-full border-primary opacity-100" />
+
+            <div class="col-12 md:col-6">
+              <h4 class="font-bold mb-4">Social Media</h4>
+
+              <!-- Facebook Link -->
+              <div class="field mb-3">
+                <label
+                  for="facebook_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-facebook text-blue-600 mr-2"></i>Facebook Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="facebook_link"
+                    formControlName="facebook_link"
+                    placeholder="Enter Facebook page URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('facebook_link')?.invalid && contactForm.get('facebook_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('facebook_link')?.invalid && contactForm.get('facebook_link')?.touched">
+                  Valid Facebook URL is required.
+                </small>
+              </div>
+
+              <!-- Instagram Link -->
+              <div class="field mb-3">
+                <label
+                  for="instagram_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-instagram text-pink-500 mr-2"></i>Instagram
+                  Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="instagram_link"
+                    formControlName="instagram_link"
+                    placeholder="Enter Instagram profile URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('instagram_link')?.invalid && contactForm.get('instagram_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('instagram_link')?.invalid && contactForm.get('instagram_link')?.touched">
+                  Valid Instagram URL is required.
+                </small>
+              </div>
+
+              <!-- LinkedIn Link -->
+              <div class="field mb-3">
+                <label
+                  for="linkedin_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-linkedin text-blue-700 mr-2"></i>LinkedIn Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="linkedin_link"
+                    formControlName="linkedin_link"
+                    placeholder="Enter LinkedIn profile URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('linkedin_link')?.invalid && contactForm.get('linkedin_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('linkedin_link')?.invalid && contactForm.get('linkedin_link')?.touched">
+                  Valid LinkedIn URL is required.
+                </small>
+              </div>
+
+              <!-- Twitter Link -->
+              <div class="field mb-3">
+                <label
+                  for="twitter_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-twitter text-blue-400 mr-2"></i>Twitter Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="twitter_link"
+                    formControlName="twitter_link"
+                    placeholder="Enter Twitter profile URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('twitter_link')?.invalid && contactForm.get('twitter_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('twitter_link')?.invalid && contactForm.get('twitter_link')?.touched">
+                  Valid Twitter URL is required.
+                </small>
+              </div>
+
+              <!-- YouTube Link -->
+              <div class="field mb-3">
+                <label
+                  for="youtube_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-youtube text-red-600 mr-2"></i>YouTube Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="youtube_link"
+                    formControlName="youtube_link"
+                    placeholder="Enter YouTube channel URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('youtube_link')?.invalid && contactForm.get('youtube_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('youtube_link')?.invalid && contactForm.get('youtube_link')?.touched">
+                  Valid YouTube URL is required.
+                </small>
+              </div>
+
+              <!-- Snapchat Link -->
+              <div class="field mb-3">
+                <label
+                  for="snapchat_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-camera text-yellow-400 mr-2"></i>Snapchat Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="snapchat_link"
+                    formControlName="snapchat_link"
+                    placeholder="Enter Snapchat profile URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('snapchat_link')?.invalid && contactForm.get('snapchat_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('snapchat_link')?.invalid && contactForm.get('snapchat_link')?.touched">
+                  Valid Snapchat URL is invalid.
+                </small>
+              </div>
+
+              <!-- Telegram Link -->
+              <div class="field mb-3">
+                <label
+                  for="telegram_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-send text-blue-500 mr-2"></i>Telegram Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="telegram_link"
+                    formControlName="telegram_link"
+                    placeholder="Enter Telegram channel URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('telegram_link')?.invalid && contactForm.get('telegram_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('telegram_link')?.invalid && contactForm.get('telegram_link')?.touched">
+                  Valid Telegram URL is invalid.
+                </small>
+              </div>
+
+              <!-- TikTok Link -->
+              <div class="field mb-3">
+                <label
+                  for="tiktok_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-tiktok text-red-500 mr-2"></i>TikTok Link
+                </label>
+                <div class="p-input-icon-left">
+                  <input
+                    pInputText
+                    id="tiktok_link"
+                    formControlName="tiktok_link"
+                    placeholder="Enter TikTok channel URL"
+                    style="width: 100%"
+                    [class.ng-invalid]="contactForm.get('tiktok_link')?.invalid && contactForm.get('tiktok_link')?.touched" />
+                </div>
+                <small
+                  class="p-error block"
+                  *ngIf="contactForm.get('tiktok_link')?.invalid && contactForm.get('tiktok_link')?.touched">
+                  TikTok URL is invalid.
+                </small>
+              </div>
+            </div>
+            <!-- Contact Information -->
+            <hr
+              class="d-block my-5 border-2 w-full border-primary opacity-100" />
+            <div class="col-12 md:col-6">
+              <h4 class="font-bold mb-4">Contact Information</h4>
+              <!-- Main Phone -->
+              <div class="field mb-3">
+                <label for="main_phone" class="block text-900 font-medium mb-2">
+                  <i class="pi pi-phone text-blue-600 mr-2"></i>Main Phone
+                </label>
+                <input
+                  pInputText
+                  id="main_phone"
+                  formControlName="main_phone"
+                  placeholder="Enter main phone"
+                  style="width: 100%" />
+              </div>
+              <!-- Whatsapp Phone -->
+              <div class="field mb-3">
+                <label
+                  for="whatsapp_phone"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-whatsapp text-green-600 mr-2"></i>Whatsapp
+                  Phone
+                </label>
+                <input
+                  pInputText
+                  id="whatsapp_phone"
+                  formControlName="whatsapp_phone"
+                  placeholder="Enter whatsapp phone"
+                  style="width: 100%" />
+              </div>
+              <!-- Main Email -->
+              <div class="field mb-3">
+                <label for="main_email" class="block text-900 font-medium mb-2">
+                  <i class="pi pi-envelope text-red-600 mr-2"></i>Main Email
+                </label>
+                <input
+                  pInputText
+                  id="main_email"
+                  formControlName="main_email"
+                  placeholder="Enter main email"
+                  style="width: 100%" />
+              </div>
+
+              <!-- google Maps Link -->
+              <div class="field mb-3">
+                <label
+                  for="google_map_link"
+                  class="block text-900 font-medium mb-2">
+                  <i class="pi pi-map-marker text-green-600 mr-2"></i>Google
+                  Maps Link
+                </label>
+                <input
+                  pInputText
+                  id="google_map_link"
+                  formControlName="google_map_link"
+                  placeholder="Enter google map link"
+                  style="width: 100%" />
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <p-button
+                  label="Update Contact Us"
+                  icon="pi pi-check"
+                  severity="primary"
+                  type="submit"
+                  [disabled]="contactForm.invalid || isLoading()"
+                  [loading]="isLoading()">
+                </p-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+<p-toast></p-toast>

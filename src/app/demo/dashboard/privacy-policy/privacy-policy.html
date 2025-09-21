@@ -1,0 +1,100 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="'Privacy Policy'" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="privacyPolicyForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- left side : en  -->
+
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">English content</h2>
+              <!-- Title Field -->
+              <div class="field mb-3">
+                <label for="en_title" class="block text-900 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="en_title"
+                  placeholder="Enter en title"
+                  style="width: 100%"
+                  [class.ng-invalid]="privacyPolicyForm.get('en_title')?.invalid && privacyPolicyForm.get('en_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="privacyPolicyForm.get('en_title')?.invalid && privacyPolicyForm.get('en_title')?.touched">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <label
+                for="en_description"
+                class="block text-900 font-medium mb-2">
+                description
+              </label>
+              <div class="card">
+                <ngx-jodit
+                  placeholder="Enter en slider description"
+                  formControlName="en_description"
+                  [options]="{
+                    height: 300,
+                    direction: 'ltr'
+                  }" />
+              </div>
+            </div>
+
+            <div class="col-12 md:col-6 right-side">
+              <h2 class="text-2xl font-bold mb-4">Arabic content</h2>
+              <!-- Title Field -->
+              <div class="field mb-3">
+                <label for="ar_title" class="block text-900 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_title"
+                  formControlName="ar_title"
+                  placeholder="Enter ar title"
+                  style="width: 100%"
+                  [class.ng-invalid]="privacyPolicyForm.get('ar_title')?.invalid && privacyPolicyForm.get('ar_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="privacyPolicyForm.get('ar_title')?.invalid && privacyPolicyForm.get('ar_title')?.touched">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <label
+                for="ar_description"
+                class="block text-900 font-medium mb-2">
+                description
+              </label>
+              <div class="card">
+                <ngx-jodit
+                  placeholder="Enter ar slider description"
+                  formControlName="ar_description"
+                  [options]="{
+                    height: 300,
+                    direction: 'rtl'
+                  }" />
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <p-button
+                  label="Update Privacy Policy"
+                  icon="pi pi-check"
+                  severity="primary"
+                  type="submit"
+                  [disabled]="privacyPolicyForm.invalid || isLoading()"
+                  [loading]="isLoading()">
+                </p-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+<p-toast></p-toast>

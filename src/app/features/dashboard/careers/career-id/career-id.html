@@ -1,0 +1,664 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="pageTitle()" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="careerForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- English Content (Left Side) -->
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">English Content</h2>
+
+              <!-- Name Field -->
+              <div class="field mb-3">
+                <label for="en_name" class="block text-900 font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  pInputText
+                  id="en_name"
+                  formControlName="en_name"
+                  placeholder="Enter English name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_name')?.invalid && careerForm.get('en_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_name')?.invalid && careerForm.get('en_name')?.touched && !isViewMode()">
+                  Name is required and must be at least 3 characters long.
+                </small>
+              </div>
+
+              <!-- Type Field -->
+              <div class="field mb-3">
+                <label for="en_type" class="block text-900 font-medium mb-2">
+                  Type
+                </label>
+                <input
+                  pInputText
+                  id="en_type"
+                  formControlName="en_type"
+                  placeholder="Enter English type"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_type')?.invalid && careerForm.get('en_type')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_type')?.invalid && careerForm.get('en_type')?.touched && !isViewMode()">
+                  Type is required.
+                </small>
+              </div>
+
+              <!-- Location Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_location"
+                  class="block text-900 font-medium mb-2">
+                  Location
+                </label>
+                <input
+                  pInputText
+                  id="en_location"
+                  formControlName="en_location"
+                  placeholder="Enter English location"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_location')?.invalid && careerForm.get('en_location')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_location')?.invalid && careerForm.get('en_location')?.touched && !isViewMode()">
+                  Location is required.
+                </small>
+              </div>
+
+              <!-- Category Name Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_category_name"
+                  class="block text-900 font-medium mb-2">
+                  Category Name
+                </label>
+                <input
+                  pInputText
+                  id="en_category_name"
+                  formControlName="en_category_name"
+                  placeholder="Enter English category name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_category_name')?.invalid && careerForm.get('en_category_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_category_name')?.invalid && careerForm.get('en_category_name')?.touched && !isViewMode()">
+                  Category name is required.
+                </small>
+              </div>
+
+              <!-- Title Field -->
+              <div class="field mb-3">
+                <label for="en_title" class="block text-900 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="en_title"
+                  placeholder="Enter English title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_title')?.invalid && careerForm.get('en_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_title')?.invalid && careerForm.get('en_title')?.touched && !isViewMode()">
+                  Title is required.
+                </small>
+              </div>
+
+              <!-- Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_description"
+                  class="block text-900 font-medium mb-2">
+                  Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter English description"
+                    formControlName="en_description"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Title Requirements Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_title_requirements"
+                  class="block text-900 font-medium mb-2">
+                  Requirements Title
+                </label>
+                <input
+                  pInputText
+                  id="en_title_requirements"
+                  formControlName="en_title_requirements"
+                  placeholder="Enter English requirements title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_title_requirements')?.invalid && careerForm.get('en_title_requirements')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_title_requirements')?.invalid && careerForm.get('en_title_requirements')?.touched && !isViewMode()">
+                  Requirements title is required.
+                </small>
+              </div>
+
+              <!-- Description Requirements Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_description_requirements"
+                  class="block text-900 font-medium mb-2">
+                  Requirements Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter English requirements description"
+                    formControlName="en_description_requirements"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Title Responsibilities Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_title_responsibilities"
+                  class="block text-900 font-medium mb-2">
+                  Responsibilities Title
+                </label>
+                <input
+                  pInputText
+                  id="en_title_responsibilities"
+                  formControlName="en_title_responsibilities"
+                  placeholder="Enter English responsibilities title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_title_responsibilities')?.invalid && careerForm.get('en_title_responsibilities')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_title_responsibilities')?.invalid && careerForm.get('en_title_responsibilities')?.touched && !isViewMode()">
+                  Responsibilities title is required.
+                </small>
+              </div>
+
+              <!-- Description Responsibilities Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_description_responsibilities"
+                  class="block text-900 font-medium mb-2">
+                  Responsibilities Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter English responsibilities description"
+                    formControlName="en_description_responsibilities"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Title Skills Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_title_skills"
+                  class="block text-900 font-medium mb-2">
+                  Skills Title
+                </label>
+                <input
+                  pInputText
+                  id="en_title_skills"
+                  formControlName="en_title_skills"
+                  placeholder="Enter English skills title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_title_skills')?.invalid && careerForm.get('en_title_skills')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_title_skills')?.invalid && careerForm.get('en_title_skills')?.touched && !isViewMode()">
+                  Skills title is required.
+                </small>
+              </div>
+
+              <!-- Description Skills Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_description_skills"
+                  class="block text-900 font-medium mb-2">
+                  Skills Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter English skills description"
+                    formControlName="en_description_skills"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Meta Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_meta_title"
+                  class="block text-900 font-medium mb-2">
+                  Meta Title
+                </label>
+                <input
+                  pInputText
+                  id="en_meta_title"
+                  formControlName="en_meta_title"
+                  placeholder="Enter English meta title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('en_meta_title')?.invalid && careerForm.get('en_meta_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('en_meta_title')?.invalid && careerForm.get('en_meta_title')?.touched && !isViewMode()">
+                  Meta title is required.
+                </small>
+              </div>
+
+              <!-- Meta Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_meta_description"
+                  class="block text-900 font-medium mb-2">
+                  Meta Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter English meta description"
+                    formControlName="en_meta_description"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr'
+                    }" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Arabic Content (Right Side) -->
+            <div class="col-12 md:col-6 right-side">
+              <h2 class="text-2xl font-bold mb-4">Arabic Content</h2>
+
+              <!-- Name Field -->
+              <div class="field mb-3">
+                <label for="ar_name" class="block text-900 font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  pInputText
+                  id="ar_name"
+                  formControlName="ar_name"
+                  placeholder="Enter Arabic name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_name')?.invalid && careerForm.get('ar_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_name')?.invalid && careerForm.get('ar_name')?.touched && !isViewMode()">
+                  Name is required and must be at least 3 characters long.
+                </small>
+              </div>
+
+              <!-- Type Field -->
+              <div class="field mb-3">
+                <label for="ar_type" class="block text-900 font-medium mb-2">
+                  Type
+                </label>
+                <input
+                  pInputText
+                  id="ar_type"
+                  formControlName="ar_type"
+                  placeholder="Enter Arabic type"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_type')?.invalid && careerForm.get('ar_type')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_type')?.invalid && careerForm.get('ar_type')?.touched && !isViewMode()">
+                  Type is required.
+                </small>
+              </div>
+
+              <!-- Location Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_location"
+                  class="block text-900 font-medium mb-2">
+                  Location
+                </label>
+                <input
+                  pInputText
+                  id="ar_location"
+                  formControlName="ar_location"
+                  placeholder="Enter Arabic location"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_location')?.invalid && careerForm.get('ar_location')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_location')?.invalid && careerForm.get('ar_location')?.touched && !isViewMode()">
+                  Location is required.
+                </small>
+              </div>
+
+              <!-- Category Name Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_category_name"
+                  class="block text-900 font-medium mb-2">
+                  Category Name
+                </label>
+                <input
+                  pInputText
+                  id="ar_category_name"
+                  formControlName="ar_category_name"
+                  placeholder="Enter Arabic category name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_category_name')?.invalid && careerForm.get('ar_category_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_category_name')?.invalid && careerForm.get('ar_category_name')?.touched && !isViewMode()">
+                  Category name is required.
+                </small>
+              </div>
+
+              <!-- Title Field -->
+              <div class="field mb-3">
+                <label for="ar_title" class="block text-900 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_title"
+                  formControlName="ar_title"
+                  placeholder="Enter Arabic title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_title')?.invalid && careerForm.get('ar_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_title')?.invalid && careerForm.get('ar_title')?.touched && !isViewMode()">
+                  Title is required.
+                </small>
+              </div>
+
+              <!-- Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_description"
+                  class="block text-900 font-medium mb-2">
+                  Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter Arabic description"
+                    formControlName="ar_description"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Title Requirements Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_title_requirements"
+                  class="block text-900 font-medium mb-2">
+                  Requirements Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_title_requirements"
+                  formControlName="ar_title_requirements"
+                  placeholder="Enter Arabic requirements title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_title_requirements')?.invalid && careerForm.get('ar_title_requirements')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_title_requirements')?.invalid && careerForm.get('ar_title_requirements')?.touched && !isViewMode()">
+                  Requirements title is required.
+                </small>
+              </div>
+
+              <!-- Description Requirements Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_description_requirements"
+                  class="block text-900 font-medium mb-2">
+                  Requirements Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter Arabic requirements description"
+                    formControlName="ar_description_requirements"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Title Responsibilities Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_title_responsibilities"
+                  class="block text-900 font-medium mb-2">
+                  Responsibilities Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_title_responsibilities"
+                  formControlName="ar_title_responsibilities"
+                  placeholder="Enter Arabic responsibilities title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_title_responsibilities')?.invalid && careerForm.get('ar_title_responsibilities')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_title_responsibilities')?.invalid && careerForm.get('ar_title_responsibilities')?.touched && !isViewMode()">
+                  Responsibilities title is required.
+                </small>
+              </div>
+
+              <!-- Description Responsibilities Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_description_responsibilities"
+                  class="block text-900 font-medium mb-2">
+                  Responsibilities Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter Arabic responsibilities description"
+                    formControlName="ar_description_responsibilities"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Title Skills Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_title_skills"
+                  class="block text-900 font-medium mb-2">
+                  Skills Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_title_skills"
+                  formControlName="ar_title_skills"
+                  placeholder="Enter Arabic skills title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_title_skills')?.invalid && careerForm.get('ar_title_skills')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_title_skills')?.invalid && careerForm.get('ar_title_skills')?.touched && !isViewMode()">
+                  Skills title is required.
+                </small>
+              </div>
+
+              <!-- Description Skills Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_description_skills"
+                  class="block text-900 font-medium mb-2">
+                  Skills Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter Arabic skills description"
+                    formControlName="ar_description_skills"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Meta Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_meta_title"
+                  class="block text-900 font-medium mb-2">
+                  Meta Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_meta_title"
+                  formControlName="ar_meta_title"
+                  placeholder="Enter Arabic meta title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerForm.get('ar_meta_title')?.invalid && careerForm.get('ar_meta_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerForm.get('ar_meta_title')?.invalid && careerForm.get('ar_meta_title')?.touched && !isViewMode()">
+                  Meta title is required.
+                </small>
+              </div>
+
+              <!-- Meta Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_meta_description"
+                  class="block text-900 font-medium mb-2">
+                  Meta Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter Arabic meta description"
+                    formControlName="ar_meta_description"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl'
+                    }" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <!-- Create Mode Buttons -->
+                <ng-container *ngIf="isCreateMode()">
+                  <p-button
+                    label="Create Career"
+                    icon="pi pi-plus"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="careerForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- Edit Mode Buttons -->
+                <ng-container *ngIf="isEditMode()">
+                  <p-button
+                    label="Update Career"
+                    icon="pi pi-check"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="careerForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- View Mode Buttons -->
+                <ng-container *ngIf="isViewMode()">
+                  <p-button
+                    label="Back"
+                    icon="pi pi-arrow-left"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Edit"
+                    icon="pi pi-pencil"
+                    severity="primary"
+                    type="button"
+                    (click)="onEditcareer()">
+                  </p-button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- Toast Messages -->
+<p-toast></p-toast>

@@ -1,0 +1,76 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card header="Contact Information" styleClass="shadow-2">
+      <div class="p-fluid">
+        <!-- Contact Form Data Display -->
+        <div class="grid mt-4">
+          <div class="col-12 md:col-6">
+            <!-- Name Field -->
+            <div class="field mb-4">
+              <label class="block text-900 font-medium mb-2"> Name </label>
+              <div class="p-3 surface-100 border-round">
+                {{ contactUsForm()?.name || 'N/A' }}
+              </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="field mb-4">
+              <label class="block text-900 font-medium mb-2"> Email </label>
+              <div class="p-3 surface-100 border-round">
+                {{ contactUsForm()?.email || 'N/A' }} {{contactUsForm()?.email}}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <!-- Phone Field -->
+            <div class="field mb-4">
+              <label class="block text-900 font-medium mb-2"> Phone </label>
+              <div class="p-3 surface-100 border-round">
+                {{ contactUsForm()?.phone || 'N/A' }}
+              </div>
+            </div>
+
+            <!-- Read Status Field -->
+            <div class="field mb-4">
+              <label class="block text-900 font-medium mb-2"> Status </label>
+              <div class="p-3 surface-100 border-round">
+                <span
+                  [class]="contactUsForm()?.is_read ? 'text-green-600 font-semibold' : 'text-orange-600 font-semibold'">
+                  {{ contactUsForm()?.is_read ? 'Read' : 'Unread' }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <!-- Message Field -->
+            <div class="field mb-4">
+              <label class="block text-900 font-medium mb-2"> Message </label>
+              <div
+                class="p-3 surface-100 border-round"
+                style="min-height: 100px; white-space: pre-wrap">
+                {{ contactUsForm()?.message || 'N/A' }}
+              </div>
+            </div>
+          </div>
+          <!-- Action Buttons -->
+          <div class="col-12">
+            <div class="flex justify-content-end gap-2 pt-3">
+              <p-button
+                label="Back"
+                icon="pi pi-arrow-left"
+                severity="secondary"
+                type="button"
+                (click)="onBack()">
+              </p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- Toast Messages -->
+<p-toast></p-toast>

@@ -1,0 +1,103 @@
+// Project Form ID Component Styles
+
+.grid {
+  .field {
+    label {
+      display: flex;
+      align-items: center;
+
+      i {
+        color: var(--primary-color);
+        font-size: 1rem;
+      }
+    }
+
+    .surface-100 {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+
+  h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .border-top-1 {
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+}
+
+// Status tag styling
+:host ::ng-deep {
+  .p-tag {
+    font-weight: 600;
+
+    &.p-tag-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    &.p-tag-warning {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeaa7;
+    }
+  }
+
+  // Loading spinner
+  .p-progressspinner {
+    margin: 2rem 0;
+  }
+
+  // Card header styling
+  .p-card-header {
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--primary-color-dark)
+    );
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  // Error state styling
+  .pi-exclamation-triangle {
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .grid {
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

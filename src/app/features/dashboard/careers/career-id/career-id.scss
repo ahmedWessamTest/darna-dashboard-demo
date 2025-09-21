@@ -1,0 +1,16 @@
+::ng-deep .p-fileupload-upload-button {
+  display: none !important;
+}
+::ng-deep .p-fileupload-file-badge {
+  display: none !important;
+}
+::ng-deep .ql-disabled .ql-editor {
+  background-color: #cbd5e1 !important;
+  color: #475569;
+}
+::ng-deep .editor-disabled .p-editor-toolbar {
+  display: none;
+}
+.rtl-editor ::ng-deep .ql-editor {
+  text-align: right !important    ;
+}

@@ -1,0 +1,82 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <form [formGroup]="login" (ngSubmit)="onSubmit()">
+        <div class="card my-5">
+          <div class="card-body">
+            <a class="d-flex justify-content-center">
+              <img
+                style="width: 300px"
+                src="./assets/images/logo.png"
+                alt="logo" />
+            </a>
+            <div class="row">
+              <div class="d-flex justify-content-center">
+                <div class="auth-header">
+                  <h2 class="text-secondary mt-5"><b>Hi, Welcome Back</b></h2>
+                  <p class="fs-4 mt-2">Enter your credentials to continue</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Email address / Username" />
+              <label for="floatingInput">Email address / Username</label>
+            </div>
+            @if (login.controls.email.touched) {
+              @if (login.controls.email.errors?.["required"]) {
+                <div class="alert alert-danger">Email is required</div>
+              }
+            }
+
+            <div class="form-floating mb-3">
+              <input
+                formControlName="password"
+                type="password"
+                class="form-control"
+                id="password"
+                value="12345" />
+              <label for="password">Password</label>
+              @if (login.controls.password.touched) {
+                @if (login.controls.password.errors?.["required"]) {
+                  <div class="alert alert-danger">Password is required</div>
+                }
+                @if (login.controls.password.errors?.["minlength"]) {
+                  <div class="alert alert-danger">
+                    Password must be at least 8 characters long
+                  </div>
+                }
+              }
+            </div>
+            <div class="d-flex mt-1 justify-content-between">
+              <div class="form-check">
+                <input
+                  class="form-check-input input-primary"
+                  type="checkbox"
+                  id="customCheckc1"
+                  checked="" />
+                <label class="form-check-label text-muted" for="customCheckc1"
+                  >Remember me</label
+                >
+              </div>
+            </div>
+            <div class="d-grid mt-4">
+              <button
+                type="submit"
+                class="btn btn-secondary"
+                [disabled]="login.invalid">
+                Sign In
+              </button>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

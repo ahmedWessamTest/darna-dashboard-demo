@@ -1,0 +1,246 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="pageTitle()" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="counterForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- English Content (Left Side) -->
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">English Content</h2>
+
+              <!-- Counter Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_counter_title"
+                  class="block text-900 font-medium mb-2">
+                  Counter Title
+                </label>
+                <input
+                  pInputText
+                  id="en_counter_title"
+                  formControlName="en_counter_title"
+                  placeholder="Enter English counter title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="counterForm.get('en_counter_title')?.invalid && counterForm.get('en_counter_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="counterForm.get('en_counter_title')?.invalid && counterForm.get('en_counter_title')?.touched && !isViewMode()">
+                  Counter title is required and must be at least 3 characters
+                  long.
+                </small>
+              </div>
+
+              <!-- Alt Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_alt_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Image Text
+                </label>
+                <input
+                  pInputText
+                  id="en_alt_image"
+                  formControlName="en_alt_image"
+                  placeholder="Enter English alt image text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="counterForm.get('en_alt_image')?.invalid && counterForm.get('en_alt_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="counterForm.get('en_alt_image')?.invalid && counterForm.get('en_alt_image')?.touched && !isViewMode()">
+                  Alt image text is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Arabic Content (Right Side) -->
+            <div class="col-12 md:col-6 right-side">
+              <h2 class="text-2xl font-bold mb-4">Arabic Content</h2>
+
+              <!-- Counter Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_counter_title"
+                  class="block text-900 font-medium mb-2">
+                  Counter Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_counter_title"
+                  formControlName="ar_counter_title"
+                  placeholder="Enter Arabic counter title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="counterForm.get('ar_counter_title')?.invalid && counterForm.get('ar_counter_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="counterForm.get('ar_counter_title')?.invalid && counterForm.get('ar_counter_title')?.touched && !isViewMode()">
+                  Counter title is required and must be at least 3 characters
+                  long.
+                </small>
+              </div>
+
+              <!-- Alt Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_alt_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Image Text
+                </label>
+                <input
+                  pInputText
+                  id="ar_alt_image"
+                  formControlName="ar_alt_image"
+                  placeholder="Enter Arabic alt image text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="counterForm.get('ar_alt_image')?.invalid && counterForm.get('ar_alt_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="counterForm.get('ar_alt_image')?.invalid && counterForm.get('ar_alt_image')?.touched && !isViewMode()">
+                  Alt image text is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Current Image Display -->
+            <div class="col-12" *ngIf="counter?.main_image">
+              <div class="field">
+                <label class="block text-900 font-medium mb-2"
+                  >{{ isViewMode() ? 'Image' : 'Current Image' }}</label
+                >
+                <div class="border-1 border-300 border-round p-3 text-center">
+                  <img
+                    [src]="baseUrl + counter.main_image"
+                    [alt]="counter.en_alt_image"
+                    class="w-full max-w-20rem h-auto border-round shadow-2"
+                    style="max-height: 300px; object-fit: cover" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Shared Fields (Full Width) -->
+            <div class="col-12">
+              <h2 class="text-2xl font-bold mb-4">Additional Information</h2>
+
+              <!-- Counter Number Field -->
+              <div class="field mb-3">
+                <label
+                  for="counter_number"
+                  class="block text-900 font-medium mb-2">
+                  Counter Number
+                </label>
+                <input
+                  pInputText
+                  id="counter_number"
+                  formControlName="counter_number"
+                  placeholder="Enter counter number"
+                  type="number"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="counterForm.get('counter_number')?.invalid && counterForm.get('counter_number')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="counterForm.get('counter_number')?.invalid && counterForm.get('counter_number')?.touched && !isViewMode()">
+                  Counter number is required and must be a valid number.
+                </small>
+              </div>
+
+              <!-- Image Upload Field - Hidden in View Mode -->
+              <div class="field col-12" *ngIf="!isViewMode()">
+                <label class="block text-900 font-medium mb-2">
+                  Upload New Image
+                  <span class="text-red-500" *ngIf="isCreateMode()">*</span>
+                </label>
+                <p-fileupload
+                  name="main_image"
+                  (onSelect)="onImageSelect($event)"
+                  [multiple]="false"
+                  accept="image/*"
+                  maxFileSize="5000000"
+                  mode="advanced"
+                  [auto]="false"
+                  chooseLabel="Choose Image"
+                  uploadLabel=" "
+                  cancelLabel="Cancel">
+                  <ng-template #empty>
+                    <div class="text-center p-4">
+                      <i class="pi pi-cloud-upload text-4xl text-300"></i>
+                      <p class="mt-2 mb-0">
+                        Drag and drop an image here or click to select
+                      </p>
+                    </div>
+                  </ng-template>
+                </p-fileupload>
+
+                <!-- Image validation message for create mode -->
+                <small
+                  class="p-error block"
+                  *ngIf="isCreateMode() && !selectedFile && counterForm.get('main_image')?.invalid"
+                  style="margin-top: 10px">
+                  Image is required for creating a new counter.
+                </small>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <!-- Create Mode Buttons -->
+                <ng-container *ngIf="isCreateMode()">
+                  <p-button
+                    label="Create Counter"
+                    icon="pi pi-plus"
+                    severity="primary"
+                    type="submit"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- Edit Mode Buttons -->
+                <ng-container *ngIf="isEditMode()">
+                  <p-button
+                    label="Update Counter"
+                    icon="pi pi-check"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="counterForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- View Mode Buttons -->
+                <ng-container *ngIf="isViewMode()">
+                  <p-button
+                    label="Back"
+                    icon="pi pi-arrow-left"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Edit"
+                    icon="pi pi-pencil"
+                    severity="primary"
+                    type="button"
+                    (click)="onEditCounter()">
+                  </p-button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- Toast Messages -->
+<p-toast></p-toast>

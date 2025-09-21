@@ -1,0 +1,116 @@
+/* Custom Purple Theme Overrides for Material Design */
+/* Primary Color: #673ab7 (Deep Purple) */
+
+:root {
+  /* Primary Color Variations */
+  --p-primary-50: #f3e5f5;
+  --p-primary-100: #e1bee7;
+  --p-primary-200: #ce93d8;
+  --p-primary-300: #ba68c8;
+  --p-primary-400: #ab47bc;
+  --p-primary-500: #673ab7; /* Main Purple Color */
+  --p-primary-600: #5e35b1;
+  --p-primary-700: #512da8;
+  --p-primary-800: #4527a0;
+  --p-primary-900: #311b92;
+
+  /* Primary Color Usage */
+  --p-primary-color: var(--p-primary-500);
+  --p-primary-color-text: #ffffff;
+  --p-primary-contrast-color: #ffffff;
+
+  /* Button Primary Styles */
+  --p-button-primary-background: var(--p-primary-500);
+  --p-button-primary-border-color: var(--p-primary-500);
+  --p-button-primary-color: #ffffff;
+  --p-button-primary-hover-background: var(--p-primary-600);
+  --p-button-primary-hover-border-color: var(--p-primary-600);
+  --p-button-primary-active-background: var(--p-primary-700);
+  --p-button-primary-active-border-color: var(--p-primary-700);
+
+  /* Input Focus Colors */
+  --p-focus-ring-color: var(--p-primary-500);
+  --p-inputtext-focus-border-color: var(--p-primary-500);
+  --p-inputnumber-focus-border-color: var(--p-primary-500);
+  --p-textarea-focus-border-color: var(--p-primary-500);
+
+  /* Checkbox & Radio Colors */
+  --p-checkbox-checked-background: var(--p-primary-500);
+  --p-checkbox-checked-border-color: var(--p-primary-500);
+  --p-radiobutton-checked-background: var(--p-primary-500);
+  --p-radiobutton-checked-border-color: var(--p-primary-500);
+
+  /* Toggle Switch Colors */
+  --p-toggleswitch-checked-background: var(--p-primary-500);
+  --p-toggleswitch-checked-border-color: var(--p-primary-500);
+
+  /* Menu & Navigation Colors */
+  --p-menuitem-active-background: rgba(103, 58, 183, 0.12);
+  --p-menuitem-active-color: var(--p-primary-500);
+
+  /* Table Selection Colors */
+  --p-datatable-row-selected-background: rgba(103, 58, 183, 0.12);
+  --p-datatable-row-selected-color: var(--p-primary-500);
+
+  /* Progress Colors */
+  --p-progressbar-background: var(--p-primary-500);
+  --p-progressspinner-color-1: var(--p-primary-500);
+  --p-progressspinner-color-2: var(--p-primary-600);
+  --p-progressspinner-color-3: var(--p-primary-700);
+  --p-progressspinner-color-4: var(--p-primary-800);
+
+  /* Link Colors */
+  --p-link-color: var(--p-primary-500);
+  --p-link-hover-color: var(--p-primary-600);
+
+  /* Accent Colors for highlights */
+  --p-highlight-background: rgba(103, 58, 183, 0.12);
+  --p-highlight-color: var(--p-primary-500);
+  --p-highlight-focus-background: rgba(103, 58, 183, 0.24);
+}
+
+/* Dark Mode Overrides */
+.p-dark {
+  --p-primary-color: #8c7ae6;
+  --p-primary-50: #2d1b5e;
+  --p-primary-100: #3d2770;
+  --p-primary-200: #4d3282;
+  --p-primary-300: #5d3e94;
+  --p-primary-400: #6d4aa6;
+  --p-primary-500: #7d56b8;
+  --p-primary-600: #8c7ae6;
+  --p-primary-700: #9c86ea;
+  --p-primary-800: #ac92ee;
+  --p-primary-900: #bc9ef2;
+}
+
+/* Additional Component Specific Overrides */
+.p-button.p-button-primary {
+  background: var(--p-primary-500) !important;
+  border-color: var(--p-primary-500) !important;
+
+  &:hover {
+    background: var(--p-primary-600) !important;
+    border-color: var(--p-primary-600) !important;
+  }
+
+  &:active {
+    background: var(--p-primary-700) !important;
+    border-color: var(--p-primary-700) !important;
+  }
+}
+
+/* Card and Panel accent colors */
+.p-card .p-card-header {
+  border-bottom: 2px solid var(--p-primary-500);
+}
+
+/* Custom utility class for purple theme */
+.purple-accent {
+  color: var(--p-primary-500) !important;
+}
+
+.purple-bg {
+  background-color: var(--p-primary-500) !important;
+  color: white !important;
+}

@@ -1,0 +1,18 @@
+# Angular build and dependencies
+/node_modules/
+/dist/
+/out-tsc/
+
+# Angular cache
+.angular/
+
+# Environment files
+/src/environments/*.ts
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,180 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="pageTitle()" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="testmonialForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- left side : en  -->
+
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">English content</h2>
+              <!-- name Field -->
+              <div class="field mb-3">
+                <label for="en_name" class="block text-900 font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  pInputText
+                  id="en_name"
+                  formControlName="en_name"
+                  placeholder="Enter en name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="testmonialForm.get('en_name')?.invalid && testmonialForm.get('en_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="testmonialForm.get('en_name')?.invalid && testmonialForm.get('en_name')?.touched && !isViewMode()">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <!-- job Field -->
+              <div class="field mb-3">
+                <label for="en_job" class="block text-900 font-medium mb-2">
+                  Job
+                </label>
+                <input
+                  pInputText
+                  id="en_job"
+                  formControlName="en_job"
+                  placeholder="Enter en slider title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="testmonialForm.get('en_job')?.invalid && testmonialForm.get('en_job')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="testmonialForm.get('en_job')?.invalid && testmonialForm.get('en_job')?.touched && !isViewMode()">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <!-- Description Field -->
+              <label for="en_text" class="block text-900 font-medium mb-2">
+                description
+              </label>
+              <div class="card">
+                <p-editor
+                  placeholder="Enter en slider description"
+                  formControlName="en_text"
+                  [readonly]="isViewMode()"
+                  [disabled]="isViewMode()"
+                  [ngClass]="{ 'editor-disabled': isViewMode() }"
+                  [style]="{ height: '320px', backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }" />
+              </div>
+            </div>
+
+            <!-- right side : ar  -->
+
+            <div class="col-12 md:col-6 right-side">
+              <h2 class="text-2xl font-bold mb-4">Arabic content</h2>
+              <!-- name Field -->
+              <div class="field mb-3">
+                <label for="ar_name" class="block text-900 font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  pInputText
+                  id="ar_name"
+                  formControlName="ar_name"
+                  placeholder="Enter ar slider title"
+                  style="width: 100%"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  [class.ng-invalid]="testmonialForm.get('ar_name')?.invalid && testmonialForm.get('ar_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="testmonialForm.get('ar_name')?.invalid && testmonialForm.get('ar_name')?.touched && !isViewMode()">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+
+              <!-- job Field -->
+              <div class="field mb-3">
+                <label for="ar_job" class="block text-900 font-medium mb-2">
+                  Job
+                </label>
+                <input
+                  pInputText
+                  id="ar_job"
+                  formControlName="ar_job"
+                  placeholder="Enter ar slider title"
+                  style="width: 100%"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  [class.ng-invalid]="testmonialForm.get('ar_job')?.invalid && testmonialForm.get('ar_job')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="testmonialForm.get('ar_job')?.invalid && testmonialForm.get('ar_job')?.touched && !isViewMode()">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <label for="ar_text" class="block text-900 font-medium mb-2">
+                description
+              </label>
+              <div class="card">
+                <p-editor
+                  placeholder="Enter ar slider description"
+                  formControlName="ar_text"
+                  [readonly]="isViewMode()"
+                  [disabled]="isViewMode()"
+                  [ngClass]="{ 'editor-disabled': isViewMode() }"
+                  [style]="{ height: '320px', backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }" />
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <!-- Create Mode Buttons -->
+                <ng-container *ngIf="isCreateMode()">
+                  <p-button
+                    label="Create Slider"
+                    icon="pi pi-plus"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="testmonialForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- Edit Mode Buttons -->
+                <ng-container *ngIf="isEditMode()">
+                  <p-button
+                    label="Update Testimonial"
+                    icon="pi pi-check"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="testmonialForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- View Mode Buttons -->
+                <ng-container *ngIf="isViewMode()">
+                  <p-button
+                    label="Back"
+                    icon="pi pi-arrow-left"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Edit"
+                    icon="pi pi-pencil"
+                    severity="primary"
+                    type="button"
+                    (click)="onEditSlider()">
+                  </p-button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- Toast Messages -->
+<p-toast></p-toast>

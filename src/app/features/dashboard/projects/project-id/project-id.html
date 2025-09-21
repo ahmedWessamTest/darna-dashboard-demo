@@ -1,0 +1,1303 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="pageTitle()" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- English Content (Left Side) -->
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">English Content</h2>
+
+              <!-- Project Name Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_project_name"
+                  class="block text-900 font-medium mb-2">
+                  Project Name
+                </label>
+                <input
+                  pInputText
+                  id="en_project_name"
+                  formControlName="en_project_name"
+                  placeholder="Enter English project name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('en_project_name')?.invalid && projectForm.get('en_project_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('en_project_name')?.invalid && projectForm.get('en_project_name')?.touched && !isViewMode()">
+                  Project name is required.
+                </small>
+              </div>
+
+              <!-- Project Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_project_title"
+                  class="block text-900 font-medium mb-2">
+                  Project Title
+                </label>
+                <input
+                  pInputText
+                  id="en_project_title"
+                  formControlName="en_project_title"
+                  placeholder="Enter English project title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('en_project_title')?.invalid && projectForm.get('en_project_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('en_project_title')?.invalid && projectForm.get('en_project_title')?.touched && !isViewMode()">
+                  Project title is required.
+                </small>
+              </div>
+
+              <!-- Project Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_project_description"
+                  class="block text-900 font-medium mb-2">
+                  Project Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter English project description"
+                    formControlName="en_project_description"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Small Text Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_small_text"
+                  class="block text-900 font-medium mb-2">
+                  Small Text
+                </label>
+                <textarea
+                  pTextarea
+                  id="en_small_text"
+                  formControlName="en_small_text"
+                  placeholder="Enter English small text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                  style="width: 100%">
+                </textarea>
+              </div>
+
+              <!-- Alt Main Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_alt_main_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Main Image Text
+                </label>
+                <input
+                  pInputText
+                  id="en_alt_main_image"
+                  formControlName="en_alt_main_image"
+                  placeholder="Enter English alt main image text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('en_alt_main_image')?.invalid && projectForm.get('en_alt_main_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('en_alt_main_image')?.invalid && projectForm.get('en_alt_main_image')?.touched && !isViewMode()">
+                  Alt main image text is required.
+                </small>
+              </div>
+
+              <!-- Alt Banner Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_alt_banner_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Banner Image Text
+                </label>
+                <input
+                  pInputText
+                  id="en_alt_banner_image"
+                  formControlName="en_alt_banner_image"
+                  placeholder="Enter English alt banner image text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('en_alt_banner_image')?.invalid && projectForm.get('en_alt_banner_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('en_alt_banner_image')?.invalid && projectForm.get('en_alt_banner_image')?.touched && !isViewMode()">
+                  Alt banner image text is required.
+                </small>
+              </div>
+
+              <!-- Meta Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_meta_title"
+                  class="block text-900 font-medium mb-2">
+                  Meta Title
+                </label>
+                <input
+                  pInputText
+                  id="en_meta_title"
+                  formControlName="en_meta_title"
+                  placeholder="Enter English meta title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('en_meta_title')?.invalid && projectForm.get('en_meta_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('en_meta_title')?.invalid && projectForm.get('en_meta_title')?.touched && !isViewMode()">
+                  Meta title is required.
+                </small>
+              </div>
+
+              <!-- Meta Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_meta_description"
+                  class="block text-900 font-medium mb-2">
+                  Meta Description
+                </label>
+                <textarea
+                  pTextarea
+                  id="en_meta_description"
+                  formControlName="en_meta_description"
+                  placeholder="Enter English meta description"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                  style="width: 100%">
+                </textarea>
+              </div>
+
+              <!-- Script Text Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_script_text"
+                  class="block text-900 font-medium mb-2">
+                  Script Text
+                </label>
+                <textarea
+                  pTextarea
+                  id="en_script_text"
+                  formControlName="en_script_text"
+                  placeholder="Enter English script text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                  style="width: 100%">
+                </textarea>
+              </div>
+            </div>
+
+            <!-- Arabic Content (Right Side) -->
+            <div class="col-12 md:col-6 right-side">
+              <h2 class="text-2xl font-bold mb-4">Arabic Content</h2>
+
+              <!-- Project Name Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_project_name"
+                  class="block text-900 font-medium mb-2">
+                  Project Name
+                </label>
+                <input
+                  pInputText
+                  id="ar_project_name"
+                  formControlName="ar_project_name"
+                  placeholder="Enter Arabic project name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('ar_project_name')?.invalid && projectForm.get('ar_project_name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('ar_project_name')?.invalid && projectForm.get('ar_project_name')?.touched && !isViewMode()">
+                  Project name is required.
+                </small>
+              </div>
+
+              <!-- Project Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_project_title"
+                  class="block text-900 font-medium mb-2">
+                  Project Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_project_title"
+                  formControlName="ar_project_title"
+                  placeholder="Enter Arabic project title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('ar_project_title')?.invalid && projectForm.get('ar_project_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('ar_project_title')?.invalid && projectForm.get('ar_project_title')?.touched && !isViewMode()">
+                  Project title is required.
+                </small>
+              </div>
+
+              <!-- Project Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_project_description"
+                  class="block text-900 font-medium mb-2">
+                  Project Description
+                </label>
+                <div class="card">
+                  <ngx-jodit
+                    placeholder="Enter Arabic project description"
+                    formControlName="ar_project_description"
+                    [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl'
+                    }" />
+                </div>
+              </div>
+
+              <!-- Small Text Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_small_text"
+                  class="block text-900 font-medium mb-2">
+                  Small Text
+                </label>
+                <textarea
+                  pTextarea
+                  id="ar_small_text"
+                  formControlName="ar_small_text"
+                  placeholder="Enter Arabic small text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                  style="width: 100%">
+                </textarea>
+              </div>
+
+              <!-- Alt Main Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_alt_main_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Main Image Text
+                </label>
+                <input
+                  pInputText
+                  id="ar_alt_main_image"
+                  formControlName="ar_alt_main_image"
+                  placeholder="Enter Arabic alt main image text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('ar_alt_main_image')?.invalid && projectForm.get('ar_alt_main_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('ar_alt_main_image')?.invalid && projectForm.get('ar_alt_main_image')?.touched && !isViewMode()">
+                  Alt main image text is required.
+                </small>
+              </div>
+
+              <!-- Alt Banner Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_alt_banner_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Banner Image Text
+                </label>
+                <input
+                  pInputText
+                  id="ar_alt_banner_image"
+                  formControlName="ar_alt_banner_image"
+                  placeholder="Enter Arabic alt banner image text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('ar_alt_banner_image')?.invalid && projectForm.get('ar_alt_banner_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('ar_alt_banner_image')?.invalid && projectForm.get('ar_alt_banner_image')?.touched && !isViewMode()">
+                  Alt banner image text is required.
+                </small>
+              </div>
+
+              <!-- Meta Title Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_meta_title"
+                  class="block text-900 font-medium mb-2">
+                  Meta Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_meta_title"
+                  formControlName="ar_meta_title"
+                  placeholder="Enter Arabic meta title"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="projectForm.get('ar_meta_title')?.invalid && projectForm.get('ar_meta_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="projectForm.get('ar_meta_title')?.invalid && projectForm.get('ar_meta_title')?.touched && !isViewMode()">
+                  Meta title is required.
+                </small>
+              </div>
+
+              <!-- Meta Description Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_meta_description"
+                  class="block text-900 font-medium mb-2">
+                  Meta Description
+                </label>
+                <textarea
+                  pTextarea
+                  id="ar_meta_description"
+                  formControlName="ar_meta_description"
+                  placeholder="Enter Arabic meta description"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                  style="width: 100%">
+                </textarea>
+              </div>
+
+              <!-- Script Text Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_script_text"
+                  class="block text-900 font-medium mb-2">
+                  Script Text
+                </label>
+                <textarea
+                  pTextarea
+                  id="ar_script_text"
+                  formControlName="ar_script_text"
+                  placeholder="Enter Arabic script text"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                  style="width: 100%">
+                </textarea>
+              </div>
+            </div>
+
+            <!-- Current Images Display -->
+            <div class="col-12" *ngIf="project?.main_image">
+              <h2 class="text-2xl font-bold mb-4">Current Images</h2>
+              <div class="grid">
+                <div class="col-12 md:col-6" *ngIf="project?.main_image">
+                  <div class="field">
+                    <label class="block text-900 font-medium mb-2"
+                      >Main Image</label
+                    >
+                    <div
+                      class="border-1 border-300 border-round p-3 text-center">
+                      <img
+                        [src]="baseUrl + project.main_image"
+                        [alt]="project.en_alt_main_image"
+                        class="border-round shadow-2"
+                        style="
+                          height: 320px !important;
+                          width: 320px !important;
+                          object-fit: cover;
+                        " />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 md:col-6" *ngIf="project?.banner_image">
+                  <div class="field">
+                    <label class="block text-900 font-medium mb-2"
+                      >Banner Image</label
+                    >
+                    <div
+                      class="border-1 border-300 border-round p-3 text-center">
+                      <img
+                        [src]="baseUrl + project.banner_image"
+                        [alt]="project.en_alt_banner_image"
+                        class="border-round shadow-2"
+                        style="
+                          height: 320px !important;
+                          width: 320px !important;
+                          object-fit: cover;
+                        " />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Image Upload Fields - Hidden in View Mode -->
+            <div class="grid col-12" *ngIf="!isViewMode()">
+              <div class="col-12 md:col-6">
+                <div class="field">
+                  <label class="block text-900 font-medium mb-2">
+                    Upload Main Image
+                    <span class="text-red-500" *ngIf="isCreateMode()">*</span>
+                  </label>
+                  <p-fileupload
+                    name="main_image"
+                    (onSelect)="onMainImageSelect($event)"
+                    [multiple]="false"
+                    accept="image/*"
+                    maxFileSize="5000000"
+                    mode="advanced"
+                    [auto]="false"
+                    chooseLabel="Choose Main Image"
+                    uploadLabel=" "
+                    cancelLabel="Cancel">
+                    <ng-template #empty>
+                      <div class="text-center p-4">
+                        <i class="pi pi-cloud-upload text-4xl text-300"></i>
+                        <p class="mt-2 mb-0">
+                          Drag and drop main image here or click to select
+                        </p>
+                      </div>
+                    </ng-template>
+                  </p-fileupload>
+                </div>
+              </div>
+
+              <div class="col-12 md:col-6">
+                <div class="field">
+                  <label class="block text-900 font-medium mb-2">
+                    Upload Banner Image
+                  </label>
+                  <p-fileupload
+                    name="banner_image"
+                    (onSelect)="onBannerImageSelect($event)"
+                    [multiple]="false"
+                    accept="image/*"
+                    maxFileSize="5000000"
+                    mode="advanced"
+                    [auto]="false"
+                    chooseLabel="Choose Banner Image"
+                    uploadLabel=" "
+                    cancelLabel="Cancel">
+                    <ng-template #empty>
+                      <div class="text-center p-4">
+                        <i class="pi pi-cloud-upload text-4xl text-300"></i>
+                        <p class="mt-2 mb-0">
+                          Drag and drop banner image here or click to select
+                        </p>
+                      </div>
+                    </ng-template>
+                  </p-fileupload>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Fields (Full Width) -->
+            <div class="col-12">
+              <h2 class="text-2xl font-bold mb-4">Additional Information</h2>
+
+              <div class="grid">
+                <!-- Main File Link -->
+                <div class="col-12 md:col-6">
+                  <div class="field mb-3">
+                    <label
+                      for="main_file_link"
+                      class="block text-900 font-medium mb-2">
+                      Main File Link
+                    </label>
+                    <input
+                      pInputText
+                      id="main_file_link"
+                      formControlName="main_file_link"
+                      placeholder="Enter main file link"
+                      [readonly]="isViewMode()"
+                      [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                      style="width: 100%" />
+                  </div>
+                </div>
+
+                <!-- Google Map Link -->
+                <div class="col-12 md:col-6">
+                  <div class="field mb-3">
+                    <label
+                      for="google_map_link"
+                      class="block text-900 font-medium mb-2">
+                      Google Map Link
+                    </label>
+                    <input
+                      pInputText
+                      id="google_map_link"
+                      formControlName="google_map_link"
+                      placeholder="Enter Google map link"
+                      [readonly]="isViewMode()"
+                      [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                      style="width: 100%" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Gallery -->
+            <div class="col-12" *ngIf="!isCreateMode()">
+              <p-card header="Manage Gallery Images" styleClass="shadow-2 mt-4">
+                <div class="p-fluid">
+                  <!-- Gallery Upload Section -->
+                  <div class="field mb-4" *ngIf="!isViewMode()">
+                    <div
+                      class="flex justify-content-between align-items-center mb-3">
+                      <h3 class="text-xl font-semibold"></h3>
+                      <p-button
+                        label="Add New Images"
+                        icon="pi pi-plus"
+                        severity="primary"
+                        (click)="showGalleryUpload.set(true)"
+                        [disabled]="isGalleryLoading()">
+                      </p-button>
+                    </div>
+                  </div>
+
+                  <!-- Gallery Images Display -->
+                  <div class="field" *ngIf="galleryImages().length > 0">
+                    <h4 class="text-lg font-medium mb-3">
+                      Gallery Images ({{ galleryImages().length }} items)
+                    </h4>
+
+                    <!-- Simple Grid Layout -->
+                    <div class="grid">
+                      <div
+                        class="col-12 md:col-6 lg:col-4 xl:col-3"
+                        *ngFor="let image of galleryImages()">
+                        <div
+                          class="border-1 border-300 border-round p-3 h-full">
+                          <!-- Image Display -->
+                          <div class="text-center mb-3">
+                            <p-image
+                              [src]="baseUrl + image.main_image"
+                              [alt]="image.en_alt_name"
+                              width="100%"
+                              height="300px"
+                              [preview]="true"
+                              [imageStyle]="imageStyle">
+                            </p-image>
+                          </div>
+
+                          <!-- Status Tag -->
+                          <div class="mb-3 text-center">
+                            <p-tag
+                              [value]="image.active_status === '1' ? 'Active' : 'Disabled'"
+                              [severity]="image.active_status === '1' ? 'primary' : 'danger'">
+                            </p-tag>
+                          </div>
+
+                          <!-- Action Buttons -->
+                          <div
+                            class="flex gap-2 justify-content-center"
+                            *ngIf="!isViewMode()">
+                            <p-button
+                              icon="pi pi-pencil"
+                              severity="secondary"
+                              size="small"
+                              pTooltip="Edit Image"
+                              (click)="editGalleryImage(image)"
+                              [disabled]="isGalleryLoading()">
+                            </p-button>
+                            <p-button
+                              [icon]="image.active_status === '1' ? 'pi pi-ban' : 'pi pi-check'"
+                              [severity]="image.active_status === '1' ? 'danger' : 'success'"
+                              size="small"
+                              [pTooltip]="image.active_status === '1' ? 'Disable' : 'Activate'"
+                              (click)="toggleGalleryImageStatus(image)"
+                              [disabled]="isGalleryLoading()">
+                            </p-button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Empty Gallery Message -->
+                  <div
+                    class="text-center p-6"
+                    *ngIf="galleryImages().length === 0 && !isGalleryLoading()">
+                    <i class="pi pi-images text-4xl text-300 mb-3"></i>
+                    <p class="text-500 text-lg">No gallery images found</p>
+                    <p class="text-500" *ngIf="!isViewMode()">
+                      Click "Add New Images" to upload gallery images
+                    </p>
+                  </div>
+
+                  <!-- Loading State -->
+                  <div class="text-center p-6" *ngIf="isGalleryLoading()">
+                    <i
+                      class="pi pi-spin pi-spinner text-4xl text-primary mb-3"></i>
+                    <p class="text-primary text-lg">
+                      Loading gallery images...
+                    </p>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+            <div class="col-12">
+              <!-- Form Info Fields -->
+              <div class="grid">
+                <div class="col-12 md:col-6">
+                  <div class="field mb-3">
+                    <label
+                      for="en_form_first_input_info"
+                      class="block text-900 font-medium mb-2">
+                      English Form First Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="en_form_first_input_info"
+                      formControlName="en_form_first_input_info"
+                      placeholder="Enter English form first input info"
+                      [readonly]="isViewMode()"
+                      [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                      style="width: 100%">
+                    </textarea>
+                  </div>
+                </div>
+
+                <div class="col-12 md:col-6">
+                  <div class="field mb-3">
+                    <label
+                      for="ar_form_first_input_info"
+                      class="block text-900 font-medium mb-2">
+                      Arabic Form First Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="ar_form_first_input_info"
+                      formControlName="ar_form_first_input_info"
+                      placeholder="Enter Arabic form first input info"
+                      [readonly]="isViewMode()"
+                      [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                      style="width: 100%">
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- Form Info Fields -->
+              <div class="grid">
+                <div class="col-12 md:col-6">
+                  <div class="field mb-3">
+                    <label
+                      for="en_form_first_input_info"
+                      class="block text-900 font-medium mb-2">
+                      English Form Second Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="en_form_second_input_info"
+                      formControlName="en_form_second_input_info"
+                      placeholder="Enter English form second input info"
+                      [readonly]="isViewMode()"
+                      [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                      style="width: 100%">
+                    </textarea>
+                  </div>
+                </div>
+
+                <div class="col-12 md:col-6">
+                  <div class="field mb-3">
+                    <label
+                      for="ar_form_first_input_info"
+                      class="block text-900 font-medium mb-2">
+                      Arabic Form Second Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="ar_form_second_input_info"
+                      formControlName="ar_form_second_input_info"
+                      placeholder="Enter Arabic form second input info"
+                      [readonly]="isViewMode()"
+                      [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '100px' }"
+                      style="width: 100%">
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Choices Management -->
+            <div class="col-12" *ngIf="!isCreateMode()">
+              <p-card
+                header="Manage Project Form Inputs"
+                styleClass="shadow-2 mt-4">
+                <div class="p-fluid">
+                  <!-- Action Buttons -->
+                  <div class="field mb-4" *ngIf="!isViewMode()">
+                    <div class="flex gap-3 mb-3">
+                      <p-button
+                        label="Add Form First Input"
+                        icon="pi pi-plus"
+                        severity="primary"
+                        (click)="openChoicesDialog('project-form-first')"
+                        [disabled]="isChoicesLoading()">
+                      </p-button>
+                      <p-button
+                        label="Add Form Second Input"
+                        icon="pi pi-plus"
+                        severity="secondary"
+                        (click)="openChoicesDialog('project-form-second')"
+                        [disabled]="isChoicesLoading()">
+                      </p-button>
+                    </div>
+                  </div>
+
+                  <!-- Project Choices Display -->
+                  <div class="grid">
+                    <!-- Form First Inputs -->
+                    <div class="col-12 md:col-6">
+                      <div class="field">
+                        <h4 class="text-lg font-medium mb-3">
+                          Form First Inputs ({{ getAllChoicesFirst().length }}
+                          items)
+                        </h4>
+
+                        <div
+                          class="grid"
+                          *ngIf="getAllChoicesFirst().length > 0">
+                          <div
+                            class="col-12"
+                            *ngFor="let choice of getAllChoicesFirst()">
+                            <div
+                              class="border-1 border-300 border-round p-3 mb-2">
+                              <!-- Choice Content -->
+                              <div class="mb-3">
+                                <div class="mb-2">
+                                  <strong>English:</strong> {{
+                                  choice.en_input_info }} | {{
+                                  projectForm.get('en_form_first_input_info')?.value
+                                  }}
+                                </div>
+                                <div class="mb-2">
+                                  <strong>Arabic:</strong> {{
+                                  choice.ar_input_info }} | {{
+                                  projectForm.get('ar_form_first_input_info')?.value
+                                  }}
+                                </div>
+                              </div>
+
+                              <!-- Status Tag -->
+                              <div class="mb-3">
+                                <p-tag
+                                  [value]="choice.active_status === '1' ? 'Active' : 'Disabled'"
+                                  [severity]="choice.active_status === '1' ? 'primary' : 'danger'">
+                                </p-tag>
+                              </div>
+
+                              <!-- Action Buttons -->
+                              <div class="flex gap-2" *ngIf="!isViewMode()">
+                                <p-button
+                                  icon="pi pi-pencil"
+                                  severity="secondary"
+                                  size="small"
+                                  pTooltip="Edit Choice"
+                                  (click)="editProjectChoice(choice, 'project-form-first')"
+                                  [disabled]="isChoicesLoading()">
+                                </p-button>
+                                <p-button
+                                  [icon]="choice.active_status === '1' ? 'pi pi-ban' : 'pi pi-check'"
+                                  [severity]="choice.active_status === '1' ? 'danger' : 'success'"
+                                  size="small"
+                                  [pTooltip]="choice.active_status === '1' ? 'Disable' : 'Activate'"
+                                  (click)="toggleProjectChoiceStatus(choice, 'project-form-first')"
+                                  [disabled]="isChoicesLoading()">
+                                </p-button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Empty Message -->
+                        <div
+                          class="text-center p-4 border-1 border-300 border-round"
+                          *ngIf="getAllChoicesFirst().length === 0 && !isChoicesLoading()">
+                          <i class="pi pi-list text-3xl text-300 mb-2"></i>
+                          <p class="text-500">No form first inputs found</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Form Second Inputs -->
+                    <div class="col-12 md:col-6">
+                      <div class="field">
+                        <h4 class="text-lg font-medium mb-3">
+                          Form Second Inputs ({{ getAllChoicesSecond().length }}
+                          items)
+                        </h4>
+
+                        <div
+                          class="grid"
+                          *ngIf="getAllChoicesSecond().length > 0">
+                          <div
+                            class="col-12"
+                            *ngFor="let choice of getAllChoicesSecond()">
+                            <div
+                              class="border-1 border-300 border-round p-3 mb-2">
+                              <!-- Choice Content -->
+                              <div class="mb-3">
+                                <div class="mb-2">
+                                  <strong>English:</strong> {{
+                                  choice.en_input_info }} | {{
+                                  projectForm.get('en_form_second_input_info')?.value
+                                  }}
+                                </div>
+                                <div class="mb-2">
+                                  <strong>Arabic:</strong> {{
+                                  choice.ar_input_info }} | {{
+                                  projectForm.get('ar_form_second_input_info')?.value
+                                  }}
+                                </div>
+                              </div>
+
+                              <!-- Status Tag -->
+                              <div class="mb-3">
+                                <p-tag
+                                  [value]="choice.active_status === '1' ? 'Active' : 'Disabled'"
+                                  [severity]="choice.active_status === '1' ? 'primary' : 'danger'">
+                                </p-tag>
+                              </div>
+
+                              <!-- Action Buttons -->
+                              <div class="flex gap-2" *ngIf="!isViewMode()">
+                                <p-button
+                                  icon="pi pi-pencil"
+                                  severity="secondary"
+                                  size="small"
+                                  pTooltip="Edit Choice"
+                                  (click)="editProjectChoice(choice, 'project-form-second')"
+                                  [disabled]="isChoicesLoading()">
+                                </p-button>
+                                <p-button
+                                  [icon]="choice.active_status === '1' ? 'pi pi-ban' : 'pi pi-check'"
+                                  [severity]="choice.active_status === '1' ? 'danger' : 'success'"
+                                  size="small"
+                                  [pTooltip]="choice.active_status === '1' ? 'Disable' : 'Activate'"
+                                  (click)="toggleProjectChoiceStatus(choice, 'project-form-second')"
+                                  [disabled]="isChoicesLoading()">
+                                </p-button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Empty Message -->
+                        <div
+                          class="text-center p-4 border-1 border-300 border-round"
+                          *ngIf="getAllChoicesSecond().length === 0 && !isChoicesLoading()">
+                          <i class="pi pi-list text-3xl text-300 mb-2"></i>
+                          <p class="text-500">No form second inputs found</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Loading State -->
+                  <div class="text-center p-6" *ngIf="isChoicesLoading()">
+                    <i
+                      class="pi pi-spin pi-spinner text-4xl text-primary mb-3"></i>
+                    <p class="text-primary text-lg">
+                      Loading project choices...
+                    </p>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+
+            <!-- Gallery Upload Dialog -->
+            <p-dialog
+              header="Upload Gallery Images"
+              [(visible)]="showGalleryUpload"
+              [modal]="true"
+              [draggable]="false"
+              [resizable]="false"
+              styleClass="p-dialog-maximized-responsive"
+              [style]="{ width: '50vw', minWidth: '400px' }">
+              <div class="p-fluid">
+                <div class="field">
+                  <label class="block text-900 font-medium mb-2"
+                    >Select Images</label
+                  >
+                  <p-fileupload
+                    name="gallery_images"
+                    (onSelect)="onGalleryFilesSelect($event)"
+                    [multiple]="true"
+                    accept="image/*"
+                    maxFileSize="5000000"
+                    mode="advanced"
+                    [auto]="false"
+                    chooseLabel="Choose Images"
+                    uploadLabel=" "
+                    cancelLabel="Cancel">
+                    <ng-template #empty>
+                      <div class="text-center p-4">
+                        <i class="pi pi-cloud-upload text-4xl text-300"></i>
+                        <p class="mt-2 mb-0">
+                          Drag and drop images here or click to select
+                        </p>
+                      </div>
+                    </ng-template>
+                  </p-fileupload>
+                </div>
+              </div>
+
+              <ng-template #footer>
+                <p-button
+                  label="Cancel"
+                  icon="pi pi-times"
+                  severity="secondary"
+                  (click)="closeGalleryUpload()"
+                  [disabled]="isGalleryLoading()">
+                </p-button>
+                <p-button
+                  label="Upload Images"
+                  icon="pi pi-upload"
+                  severity="primary"
+                  (click)="uploadGalleryImages()"
+                  [disabled]="selectedGalleryFiles().length === 0 || isGalleryLoading()"
+                  [loading]="isGalleryLoading()">
+                </p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- Edit Gallery Image Dialog -->
+            <p-dialog
+              header="Edit Gallery Image"
+              [(visible)]="showEditGalleryDialog"
+              [modal]="true"
+              [draggable]="false"
+              [resizable]="false"
+              styleClass="p-dialog-maximized-responsive"
+              [style]="{ width: '40vw', minWidth: '400px' }">
+              <div class="p-fluid" *ngIf="editingGalleryImage()">
+                <!-- Current Image Display -->
+                <div class="field mb-4">
+                  <label class="block text-900 font-medium mb-2"
+                    >Current Image</label
+                  >
+                  <div class="text-center border-1 border-300 border-round p-3">
+                    <img
+                      [src]="baseUrl + editingGalleryImage()!.main_image"
+                      [alt]="editingGalleryImage()!.en_alt_name"
+                      class="border-round shadow-2"
+                      style="
+                        max-height: 200px;
+                        width: auto;
+                        object-fit: cover;
+                      " />
+                  </div>
+                </div>
+
+                <!-- Upload New Image -->
+                <div class="field">
+                  <label class="block text-900 font-medium mb-2"
+                    >Upload New Image (Optional)</label
+                  >
+                  <p-fileupload
+                    name="edit_image"
+                    (onSelect)="onEditImageSelect($event)"
+                    [multiple]="false"
+                    accept="image/*"
+                    maxFileSize="5000000"
+                    mode="advanced"
+                    [auto]="false"
+                    chooseLabel="Choose New Image"
+                    uploadLabel=" "
+                    cancelLabel="Cancel">
+                    <ng-template #empty>
+                      <div class="text-center p-4">
+                        <i class="pi pi-cloud-upload text-4xl text-300"></i>
+                        <p class="mt-2 mb-0">
+                          Drag and drop new image here or click to select
+                        </p>
+                      </div>
+                    </ng-template>
+                  </p-fileupload>
+                </div>
+              </div>
+
+              <ng-template #footer>
+                <p-button
+                  label="Cancel"
+                  icon="pi pi-times"
+                  severity="secondary"
+                  (click)="closeEditGalleryDialog()"
+                  [disabled]="isGalleryLoading()">
+                </p-button>
+                <p-button
+                  label="Update Image"
+                  icon="pi pi-check"
+                  severity="primary"
+                  (click)="updateGalleryImage()"
+                  [disabled]="isGalleryLoading()"
+                  [loading]="isGalleryLoading()">
+                </p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- Add Project Choice Dialog -->
+            <p-dialog
+              [header]="'Add ' + (currentChoicesType() === 'project-form-first' ? 'Form First' : 'Form Second') + ' Input'"
+              [(visible)]="showChoicesDialog"
+              [modal]="true"
+              [draggable]="false"
+              [resizable]="false"
+              styleClass="p-dialog-maximized-responsive"
+              [style]="{ width: '40vw', minWidth: '400px' }">
+              <form [formGroup]="choicesForm" (ngSubmit)="addProjectChoice()">
+                <div class="p-fluid">
+                  <!-- Choice Type Display -->
+                  <div class="field mb-3">
+                    <label class="block text-900 font-medium mb-2"
+                      >Input Type</label
+                    >
+                    <p-select
+                      formControlName="choices_type"
+                      [options]="choicesTypeOptions"
+                      optionLabel="label"
+                      optionValue="value"
+                      placeholder="Select input type"
+                      [disabled]="true"
+                      [style]="{ width: '100%' }">
+                    </p-select>
+                  </div>
+
+                  <!-- English Input Info -->
+                  <div class="field mb-3">
+                    <label
+                      for="en_input_info"
+                      class="block text-900 font-medium mb-2">
+                      English Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="en_input_info"
+                      formControlName="en_input_info"
+                      placeholder="Enter English input information"
+                      [style]="{ height: '100px' }"
+                      style="width: 100%"
+                      [class.ng-invalid]="choicesForm.get('en_input_info')?.invalid && choicesForm.get('en_input_info')?.touched">
+                    </textarea>
+                    <small
+                      class="p-error block"
+                      *ngIf="choicesForm.get('en_input_info')?.invalid && choicesForm.get('en_input_info')?.touched">
+                      English input info is required.
+                    </small>
+                  </div>
+
+                  <!-- Arabic Input Info -->
+                  <div class="field mb-3">
+                    <label
+                      for="ar_input_info"
+                      class="block text-900 font-medium mb-2">
+                      Arabic Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="ar_input_info"
+                      formControlName="ar_input_info"
+                      placeholder="Enter Arabic input information"
+                      [style]="{ height: '100px' }"
+                      style="width: 100%"
+                      [class.ng-invalid]="choicesForm.get('ar_input_info')?.invalid && choicesForm.get('ar_input_info')?.touched">
+                    </textarea>
+                    <small
+                      class="p-error block"
+                      *ngIf="choicesForm.get('ar_input_info')?.invalid && choicesForm.get('ar_input_info')?.touched">
+                      Arabic input info is required.
+                    </small>
+                  </div>
+                </div>
+              </form>
+
+              <ng-template #footer>
+                <p-button
+                  label="Cancel"
+                  icon="pi pi-times"
+                  severity="secondary"
+                  (click)="closeChoicesDialog()"
+                  [disabled]="isChoicesLoading()">
+                </p-button>
+                <p-button
+                  label="Add Input"
+                  icon="pi pi-plus"
+                  severity="primary"
+                  (click)="addProjectChoice()"
+                  [disabled]="choicesForm.invalid || isChoicesLoading()"
+                  [loading]="isChoicesLoading()">
+                </p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- Edit Project Choice Dialog -->
+            <p-dialog
+              header="Edit Project Input"
+              [(visible)]="showEditChoicesDialog"
+              [modal]="true"
+              [draggable]="false"
+              [resizable]="false"
+              styleClass="p-dialog-maximized-responsive"
+              [style]="{ width: '40vw', minWidth: '400px' }">
+              <form
+                [formGroup]="choicesForm"
+                (ngSubmit)="updateProjectChoice()">
+                <div class="p-fluid">
+                  <!-- Choice Type Display -->
+                  <div class="field mb-3">
+                    <label class="block text-900 font-medium mb-2"
+                      >Input Type</label
+                    >
+                    <p-select
+                      formControlName="choices_type"
+                      [options]="choicesTypeOptions"
+                      optionLabel="label"
+                      optionValue="value"
+                      placeholder="Select input type"
+                      [disabled]="true"
+                      [style]="{ width: '100%' }">
+                    </p-select>
+                  </div>
+
+                  <!-- English Input Info -->
+                  <div class="field mb-3">
+                    <label
+                      for="edit_en_input_info"
+                      class="block text-900 font-medium mb-2">
+                      English Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="edit_en_input_info"
+                      formControlName="en_input_info"
+                      placeholder="Enter English input information"
+                      [style]="{ height: '100px' }"
+                      style="width: 100%"
+                      [class.ng-invalid]="choicesForm.get('en_input_info')?.invalid && choicesForm.get('en_input_info')?.touched">
+                    </textarea>
+                    <small
+                      class="p-error block"
+                      *ngIf="choicesForm.get('en_input_info')?.invalid && choicesForm.get('en_input_info')?.touched">
+                      English input info is required.
+                    </small>
+                  </div>
+
+                  <!-- Arabic Input Info -->
+                  <div class="field mb-3">
+                    <label
+                      for="edit_ar_input_info"
+                      class="block text-900 font-medium mb-2">
+                      Arabic Input Info
+                    </label>
+                    <textarea
+                      pTextarea
+                      id="edit_ar_input_info"
+                      formControlName="ar_input_info"
+                      placeholder="Enter Arabic input information"
+                      [style]="{ height: '100px' }"
+                      style="width: 100%"
+                      [class.ng-invalid]="choicesForm.get('ar_input_info')?.invalid && choicesForm.get('ar_input_info')?.touched">
+                    </textarea>
+                    <small
+                      class="p-error block"
+                      *ngIf="choicesForm.get('ar_input_info')?.invalid && choicesForm.get('ar_input_info')?.touched">
+                      Arabic input info is required.
+                    </small>
+                  </div>
+                </div>
+              </form>
+
+              <ng-template #footer>
+                <p-button
+                  label="Cancel"
+                  icon="pi pi-times"
+                  severity="secondary"
+                  (click)="closeEditChoicesDialog()"
+                  [disabled]="isChoicesLoading()">
+                </p-button>
+                <p-button
+                  label="Update Input"
+                  icon="pi pi-check"
+                  severity="primary"
+                  (click)="updateProjectChoice()"
+                  [disabled]="choicesForm.invalid || isChoicesLoading()"
+                  [loading]="isChoicesLoading()">
+                </p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <!-- Create Mode Buttons -->
+                <ng-container *ngIf="isCreateMode()">
+                  <p-button
+                    label="Cancel"
+                    icon="pi pi-times"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Create Project"
+                    icon="pi pi-plus"
+                    severity="primary"
+                    type="submit"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- Edit Mode Buttons -->
+                <ng-container *ngIf="isEditMode()">
+                  <p-button
+                    label="Cancel"
+                    icon="pi pi-times"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Update Project"
+                    icon="pi pi-check"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="projectForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- View Mode Buttons -->
+                <ng-container *ngIf="isViewMode()">
+                  <p-button
+                    label="Back"
+                    icon="pi pi-arrow-left"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Edit"
+                    icon="pi pi-pencil"
+                    severity="primary"
+                    type="button"
+                    (click)="onEditProject()">
+                  </p-button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- Toast Messages -->
+<p-toast></p-toast>
+
+<!-- Confirmation Dialog -->
+<p-confirmDialog></p-confirmDialog>

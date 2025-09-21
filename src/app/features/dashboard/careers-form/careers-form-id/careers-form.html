@@ -1,0 +1,279 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="pageTitle()" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="careerFormForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- Applicant Information (Left Side) -->
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">Applicant Information</h2>
+
+              <!-- Name Field -->
+              <div class="field mb-3">
+                <label for="name" class="block text-900 font-medium mb-2">
+                  Full Name
+                </label>
+                <input
+                  pInputText
+                  id="name"
+                  formControlName="name"
+                  placeholder="Applicant full name"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('name')?.invalid && careerFormForm.get('name')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('name')?.invalid && careerFormForm.get('name')?.touched && !isViewMode()">
+                  Name is required and must be at least 2 characters long.
+                </small>
+              </div>
+
+              <!-- Email Field -->
+              <div class="field mb-3">
+                <label for="email" class="block text-900 font-medium mb-2">
+                  Email Address
+                </label>
+                <input
+                  pInputText
+                  id="email"
+                  formControlName="email"
+                  placeholder="Applicant email address"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('email')?.invalid && careerFormForm.get('email')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('email')?.invalid && careerFormForm.get('email')?.touched && !isViewMode()">
+                  Valid email address is required.
+                </small>
+              </div>
+
+              <!-- Phone Field -->
+              <div class="field mb-3">
+                <label for="phone" class="block text-900 font-medium mb-2">
+                  Phone Number
+                </label>
+                <input
+                  pInputText
+                  id="phone"
+                  formControlName="phone"
+                  placeholder="Applicant phone number"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('phone')?.invalid && careerFormForm.get('phone')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('phone')?.invalid && careerFormForm.get('phone')?.touched && !isViewMode()">
+                  Phone number is required.
+                </small>
+              </div>
+
+              <!-- Address Field -->
+              <div class="field mb-3">
+                <label for="address" class="block text-900 font-medium mb-2">
+                  Address
+                </label>
+                <textarea
+                  pInputTextarea
+                  id="address"
+                  clas
+                  formControlName="address"
+                  placeholder="Applicant address"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '80px' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('address')?.invalid && careerFormForm.get('address')?.touched">
+                </textarea>
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('address')?.invalid && careerFormForm.get('address')?.touched && !isViewMode()">
+                  Address is required.
+                </small>
+              </div>
+            </div>
+
+            <!-- Professional Information (Right Side) -->
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">Professional Information</h2>
+
+              <!-- Experience Field -->
+              <div class="field mb-3">
+                <label for="experience" class="block text-900 font-medium mb-2">
+                  Years of Experience
+                </label>
+                <input
+                  pInputText
+                  id="experience"
+                  formControlName="experience"
+                  placeholder="Years of experience"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('experience')?.invalid && careerFormForm.get('experience')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('experience')?.invalid && careerFormForm.get('experience')?.touched && !isViewMode()">
+                  Experience is required.
+                </small>
+              </div>
+
+              <!-- Current Salary Field -->
+              <div class="field mb-3">
+                <label
+                  for="current_salary"
+                  class="block text-900 font-medium mb-2">
+                  Current Salary
+                </label>
+                <input
+                  pInputText
+                  id="current_salary"
+                  formControlName="current_salary"
+                  placeholder="Current salary"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('current_salary')?.invalid && careerFormForm.get('current_salary')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('current_salary')?.invalid && careerFormForm.get('current_salary')?.touched && !isViewMode()">
+                  Current salary is required.
+                </small>
+              </div>
+
+              <!-- Expected Salary Field -->
+              <div class="field mb-3">
+                <label
+                  for="expected_salary"
+                  class="block text-900 font-medium mb-2">
+                  Expected Salary
+                </label>
+                <input
+                  pInputText
+                  id="expected_salary"
+                  formControlName="expected_salary"
+                  placeholder="Expected salary"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('expected_salary')?.invalid && careerFormForm.get('expected_salary')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('expected_salary')?.invalid && careerFormForm.get('expected_salary')?.touched && !isViewMode()">
+                  Expected salary is required.
+                </small>
+              </div>
+
+              <!-- Application Status -->
+              <div
+                class="mb-3 flex align-items-center gap-2"
+                *ngIf="isViewMode()">
+                <label class="text-900 font-medium mb-2">
+                  Application Status
+                </label>
+                <p-tag
+                  [value]="getReadStatus()"
+                  [severity]="getReadStatusSeverity()"
+                  class="text-sm">
+                </p-tag>
+              </div>
+
+              <!-- Career ID (Future Relation) -->
+              <div
+                class="field mb-3"
+                *ngIf="isViewMode() && careerForm?.career_id">
+                <label class="block text-900 font-medium mb-2">
+                  Applied Position ID
+                </label>
+                <p class="text-900 bg-gray-100 p-2 border-round">
+                  {{ careerForm.career_id }}
+                </p>
+                <small class="text-500">
+                  *Career details will be displayed here in future updates
+                </small>
+              </div>
+            </div>
+
+            <!-- Cover Letter (Full Width) -->
+            <div class="col-12">
+              <h2 class="text-2xl font-bold mb-4">Additional Information</h2>
+
+              <!-- Cover Letter Field -->
+              <div class="field mb-3">
+                <label
+                  for="cover_letter"
+                  class="block text-900 font-medium mb-2">
+                  Cover Letter
+                </label>
+                <textarea
+                  pInputTextarea
+                  id="cover_letter"
+                  formControlName="cover_letter"
+                  placeholder="Cover letter content"
+                  [readonly]="isViewMode()"
+                  [style]="{ backgroundColor: isViewMode() ? '#f0f0f0' : 'white', height: '150px' }"
+                  style="width: 100%"
+                  [class.ng-invalid]="careerFormForm.get('cover_letter')?.invalid && careerFormForm.get('cover_letter')?.touched">
+                </textarea>
+                <small
+                  class="p-error block"
+                  *ngIf="careerFormForm.get('cover_letter')?.invalid && careerFormForm.get('cover_letter')?.touched && !isViewMode()">
+                  Cover letter is required.
+                </small>
+              </div>
+
+              <!-- CV File Display -->
+              <div class="field mb-3" *ngIf="careerForm?.cv_file">
+                <label class="block text-900 font-medium mb-2">
+                  CV/Resume
+                </label>
+                <div class="border-1 border-300 border-round p-3">
+                  <div class="flex align-items-center justify-content-between">
+                    <div class="flex align-items-center">
+                      <i class="pi pi-file-pdf text-2xl text-red-500 mr-3"></i>
+                      <div>
+                        <p class="m-0 font-medium">
+                          {{ careerForm.cv_file.split('/').pop() }}
+                        </p>
+                        <small class="text-500">CV/Resume document</small>
+                      </div>
+                    </div>
+                    <p-button
+                      label="Download"
+                      icon="pi pi-download"
+                      severity="secondary"
+                      size="small"
+                      (click)="downloadCV()">
+                    </p-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <!-- View Mode Buttons -->
+                <ng-container *ngIf="isViewMode()">
+                  <p-button
+                    label="Back"
+                    icon="pi pi-arrow-left"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<!-- Toast Messages -->
+<p-toast></p-toast>

@@ -1,0 +1,259 @@
+<div class="grid">
+  <div class="col-12">
+    <p-card [header]="pageTitle()" styleClass="shadow-2">
+      <div class="p-fluid">
+        <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+          <!-- Form Content -->
+          <div class="grid mt-4">
+            <!-- left side : en  -->
+
+            <div class="col-12 md:col-6">
+              <h2 class="text-2xl font-bold mb-4">English content</h2>
+              <!-- Title Field -->
+              <div class="field mb-3">
+                <label for="en_title" class="block text-900 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  pInputText
+                  id="en_title"
+                  formControlName="en_title"
+                  placeholder="Enter en slider title"
+                  style="width: 100%"
+                  [class.ng-invalid]="heroForm.get('en_title')?.invalid && heroForm.get('en_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="heroForm.get('en_title')?.invalid && heroForm.get('en_title')?.touched && !isViewMode()">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <label
+                for="en_description"
+                class="block text-900 font-medium mb-2">
+                description
+              </label>
+              <div class="card">
+                <ngx-jodit
+                  placeholder="Enter en slider description"
+                  formControlName="en_description"
+                  [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'ltr',
+                      defaultStyle: {
+        p: 'margin-bottom:0 !important;',
+      }
+                    }" />
+              </div>
+              <!-- Alt Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="en_alt_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Text
+                </label>
+                <input
+                  pInputText
+                  id="en_alt_image"
+                  style="width: 100%"
+                  formControlName="en_alt_image"
+                  placeholder="Enter en image alt text"
+                  class="w-full"
+                  [class.ng-invalid]="heroForm.get('en_alt_image')?.invalid && heroForm.get('en_alt_image')?.touched" />
+
+                <small
+                  class="p-error block"
+                  *ngIf="heroForm.get('en_alt_image')?.invalid && heroForm.get('en_alt_image')?.touched && !isViewMode()">
+                  Alt text is required.
+                </small>
+              </div>
+            </div>
+
+            <div class="col-12 md:col-6 right-side">
+              <h2 class="text-2xl font-bold mb-4">Arabic content</h2>
+              <!-- Title Field -->
+              <div class="field mb-3">
+                <label for="ar_title" class="block text-900 font-medium mb-2">
+                  Title
+                </label>
+                <input
+                  pInputText
+                  id="ar_title"
+                  formControlName="ar_title"
+                  placeholder="Enter ar slider title"
+                  style="width: 100%"
+                  [class.ng-invalid]="heroForm.get('ar_title')?.invalid && heroForm.get('ar_title')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="heroForm.get('ar_title')?.invalid && heroForm.get('ar_title')?.touched && !isViewMode()">
+                  Title is required and must be at least 3 characters long.
+                </small>
+              </div>
+              <label
+                for="ar_description"
+                class="block text-900 font-medium mb-2">
+                description
+              </label>
+              <div class="card">
+                <ngx-jodit
+                  placeholder="Enter ar slider description"
+                  formControlName="ar_description"
+                  [options]="{
+                      readonly: isViewMode(),
+                      height: 300,
+                      direction: 'rtl',
+                    }" />
+              </div>
+              <!-- Alt Image Field -->
+              <div class="field mb-3">
+                <label
+                  for="ar_alt_image"
+                  class="block text-900 font-medium mb-2">
+                  Alt Text
+                </label>
+                <input
+                  pInputText
+                  id="ar_alt_image"
+                  style="width: 100%"
+                  formControlName="ar_alt_image"
+                  placeholder="Enter ar image alt text"
+                  class="w-full"
+                  [class.ng-invalid]="heroForm.get('ar_alt_image')?.invalid && heroForm.get('ar_alt_image')?.touched" />
+                <small
+                  class="p-error block"
+                  *ngIf="heroForm.get('ar_alt_image')?.invalid && heroForm.get('ar_alt_image')?.touched && !isViewMode()">
+                  Alt text is required.
+                </small>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="project_id" class="block text-900 font-medium mb-2">
+                Project Name
+              </label>
+              <p-select
+                [options]="projectListName()"
+                formControlName="project_id"
+                optionLabel="project_name"
+                optionValue="id"
+                placeholder="Select Project"
+                style="width: 100%" />
+            </div>
+
+            <!-- Image Upload Field - Hidden in View Mode -->
+            <div class="field col-12" *ngIf="!isViewMode()">
+              <label class="block text-900 font-medium mb-2">
+                Upload New Image
+                <span class="text-red-500" *ngIf="isCreateMode()">*</span>
+              </label>
+              <p-fileupload
+                name="main_image"
+                (onSelect)="onImageSelect($event)"
+                [multiple]="false"
+                accept="image/*"
+                maxFileSize="5000000"
+                mode="advanced"
+                [auto]="false"
+                chooseLabel="Choose Image"
+                uploadLabel=" "
+                cancelLabel="Cancel">
+                <ng-template #empty>
+                  <div class="text-center p-4">
+                    <i class="pi pi-cloud-upload text-4xl text-300"></i>
+                    <p class="mt-2 mb-0">
+                      Drag and drop an image here or click to select
+                    </p>
+                  </div>
+                </ng-template>
+              </p-fileupload>
+
+              <!-- Image validation message for create mode -->
+              @if (isCreateMode() && !selectedFile) {
+              <small class="p-error block">
+                Image is required for creating a new slider.
+              </small>
+              }
+            </div>
+
+            <!-- Current Image Display -->
+            <div class="col-12" *ngIf="slider?.main_image">
+              <div class="field">
+                <label class="block text-900 font-medium mb-2"
+                  >{{ isViewMode() ? 'Image' : 'Current Image' }}</label
+                >
+                <div class="border-1 border-300 border-round p-3 text-center">
+                  <img
+                    [src]="baseUrl + slider.main_image"
+                    [alt]="slider.en_alt_image"
+                    class="w-full max-w-20rem h-auto border-round shadow-2"
+                    style="max-height: 300px; object-fit: cover" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-12">
+              <div class="flex justify-content-end gap-2 pt-3">
+                <!-- Create Mode Buttons -->
+                <ng-container *ngIf="isCreateMode()">
+                  <p-button
+                    label="Cancel"
+                    icon="pi pi-times"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Create Slider"
+                    icon="pi pi-plus"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="heroForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- Edit Mode Buttons -->
+                <ng-container *ngIf="isEditMode()">
+                  <p-button
+                    label="Cancel"
+                    icon="pi pi-times"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Update Slider"
+                    icon="pi pi-check"
+                    severity="primary"
+                    type="submit"
+                    [disabled]="heroForm.invalid || isLoading()"
+                    [loading]="isLoading()">
+                  </p-button>
+                </ng-container>
+
+                <!-- View Mode Buttons -->
+                <ng-container *ngIf="isViewMode()">
+                  <p-button
+                    label="Back"
+                    icon="pi pi-arrow-left"
+                    severity="secondary"
+                    type="button"
+                    (click)="onCancel()">
+                  </p-button>
+                  <p-button
+                    label="Edit"
+                    icon="pi pi-pencil"
+                    severity="primary"
+                    type="button"
+                    (click)="onEditSlider()">
+                  </p-button>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>

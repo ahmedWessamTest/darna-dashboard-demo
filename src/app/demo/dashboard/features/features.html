@@ -1,0 +1,55 @@
+<div class="flex justify-content-between items-center mb-4 w-full">
+  <h2>Features Management</h2>
+  @if (features.length < 4 ) {
+  <p-button
+    label="Create New Feature"
+    icon="pi pi-plus"
+    [routerLink]="['create']"
+    severity="primary">
+  </p-button>
+  }
+</div>
+
+<p-table [value]="features" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>View</th>
+      <th>Edit</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-feature>
+    <tr>
+      <td>{{ feature.id }}</td>
+      <td>{{ feature.en_feature_title }}</td>
+
+      <td>
+        <a [routerLink]="['view', feature.id]">
+          <i class="pi pi-eye" style="color: #673ab7"></i>
+        </a>
+      </td>
+      <td>
+        <a [routerLink]="['edit', feature.id]">
+          <i class="pi pi-pencil" style="color: #673ab7"></i>
+        </a>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="12" class="text-center p-4">
+        <div class="flex flex-column align-items-center justify-content-center">
+          <i
+            class="pi pi-info-circle"
+            style="font-size: 2rem; color: var(--text-color-secondary)"></i>
+          <span class="mt-2" style="color: var(--text-color-secondary)"
+            >No data found</span
+          >
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
